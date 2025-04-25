@@ -1,0 +1,8 @@
+services:
+  khsd-api-peoplesoft:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mssql+pyodbc://username:password@your-sql-server/your-db?driver=ODBC+Driver+17+for+SQL+Server
+    restart: unless-stopped
