@@ -1,7 +1,8 @@
 from sqlalchemy.orm import Session
 from app.orm import PurchaseOrder, PurchaseOrderDistrib
+from typing import Union
 
-def get_po_info_from_db(session: Session, po_id: str, business_unit: str):
+def get_po_info_from_db(session: Session, po_id: Union[str, int], business_unit: str):
     # Check if 10 digits and add leading zeros if it is not
     if len(po_id) != 10 and po_id.isdigit():
         po_id = po_id.zfill(10)
