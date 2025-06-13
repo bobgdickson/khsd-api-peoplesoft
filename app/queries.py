@@ -1,11 +1,16 @@
 from sqlalchemy.orm import Session
-from orm import PurchaseOrder, PurchaseOrderDistrib
+from app.orm import PurchaseOrder, PurchaseOrderDistrib
 
 def get_po_info_from_db(session: Session, po_id: str, business_unit: str):
+    # Check if 10 digits and add leading zeros if it is not
+    if len(po_id) != 10 and po_id.isdigit():
+        po_id = po_id.zfill(10)
+        #print(f"PO ID after zero fill: {po_id}")
+    
     po = session.query(PurchaseOrder).filter_by(po_id=po_id, business_unit=business_unit).first()
     if not po:
         return None
-
+    
     distribs = (
         session.query(PurchaseOrderDistrib)
         .filter_by(po_id=po_id, business_unit=business_unit)

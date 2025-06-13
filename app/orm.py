@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Integer, DateTime, DECIMAL
 from sqlalchemy.ext.declarative import declarative_base
-from database import Base
+from app.database import Base
 
 class PurchaseOrder(Base):
     __tablename__ = "PS_PO_HDR"

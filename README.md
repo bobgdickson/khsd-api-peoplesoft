@@ -29,7 +29,7 @@ Designed to replace legacy SOAP/WSDL interfaces with clean, lightweight JSON.
 ## 🛠️ Setup (Local Development)
 
 ```bash
-git clone https://github.com/your-org/khsd-api-peoplesoft.git
+git clone https://github.com/bobgdickson/khsd-api-peoplesoft.git
 cd khsd-api-peoplesoft
 python -m venv .venv
 source .venv/bin/activate  # or .venv\Scripts\activate on Windows
@@ -39,11 +39,12 @@ pip install -r requirements.txt
 **Environment Variables (local `.env` file):**
 ```dotenv
 DATABASE_URL=mssql+pyodbc://username:password@your-sql-server/your-db?driver=ODBC+Driver+17+for+SQL+Server
+API_KEY=key
 ```
 
 **Run Locally:**
 ```bash
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
 Then open Swagger Docs at: [http://localhost:8000/docs](http://localhost:8000/docs)
